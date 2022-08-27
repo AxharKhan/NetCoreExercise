@@ -1,0 +1,77 @@
+﻿@model Customer
+
+@{
+    Layout = null;
+}
+
+<div class="modal fade text-left show EditModals" id="EditModal_@Model.Id" tabindex="-1" aria-labelledby="EditModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="EditModalLabel">Edit Customer </h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <form id="EditForm" enctype="multipart/form-data" action="api/Customers/UpdateCustomer/@Model.Id">
+                <div class="modal-body">
+
+                    <input hidden asp-for="Id" class="form-control" />
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="CustomerTypeId" class="control-label"></label>
+                        <select asp-for="CustomerTypeId" asp-items="@ViewBag.CustomerTypeList" class="form-control"></select>
+                        <span asp-validation-for="CustomerTypeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="State" class="control-label"></label>
+                        <input asp-for="State" class="form-control" />
+                        <span asp-validation-for="State" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group col-sm-12 mb-2">
+                        <label asp-for="Zip" class="control-label"></label>
+                        <input asp-for="Zip" class="form-control" />
+                        <span asp-validation-for="Zip" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Submit</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

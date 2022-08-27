@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="modal fade text-left show" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="DeleteModalLabel">Delete Customer </h4>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <form enctype="multipart/form-data" id="DeleteForm" asp-route="/api/Customers/DeleteCustomer">
+                <div class="modal-body text-center">
+                    <input hidden name="DeleteId" id="DeleteId" value="" />
+                    <input disabled id="DeleteName" value="" />
+                    <p>Are you sure you want to delete this Customer?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-danger ml-1" data-bs-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Delete</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

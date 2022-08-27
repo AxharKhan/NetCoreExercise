@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Customers";
+}
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/lib/DataTables/datatables.min.css" asp-append-version="true" />
+}
+
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="AddType">
+                <input name="typeName" class="form-control" id="typeName" maxlength="50" type="text" placeholder="New Customer Type Name" />
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h4>@ViewBag.Title <span><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateModal"><i class="bi bi-plus-circle"></i> New</button></span> </h4>
+        </div>
+        <div class="card-body">
+            <div class="alert fade">
+                <i id="AlertIcon" class=""></i>
+                <span id="AlertText"></span>
+            </div>
+
+            <table id="CustomersTable" class="table table-hover responsive w-100">
+                <thead></thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_CreateModal")
+    @await Html.PartialAsync("_DeleteModal")
+
+    @section Scripts{
+    <script type="text/javascript" src="~/lib/moment.js/moment.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/lib/DataTables/datatables.min.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
+
+}
